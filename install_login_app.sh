@@ -24,7 +24,12 @@ fi
 
 # ── 2. Build the app ─────────────────────────────────────────────────────────
 mkdir -p "$HOME/Applications"
-osacompile -o "$APP" "$SCRIPT_DIR/launch_watcher.applescript"
+# The app needs the project path, so fill it in from wherever this repo is
+# cloned, then compile the filled-in copy.
+GENERATED="$(mktemp -t launch_watcher).applescript"
+sed "s|__PROJECT_DIR__|$SCRIPT_DIR|" "$SCRIPT_DIR/launch_watcher.applescript" > "$GENERATED"
+osacompile -o "$APP" "$GENERATED"
+rm -f "$GENERATED"
 echo "Built $APP"
 
 # ── 3. Add to Login Items (replaces any existing entry) ──────────────────────

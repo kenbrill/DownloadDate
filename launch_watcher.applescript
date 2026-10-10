@@ -1,7 +1,8 @@
 -- Starts download_date_watcher.py in the background unless it is already running.
--- Compiled into "DownloadDate Watcher.app" by install_login_app.sh.
+-- install_login_app.sh replaces __PROJECT_DIR__ with the real project path
+-- and compiles this into "DownloadDate Watcher.app".
 
-property projectDir : "/Users/kbrill/theVault/PythonProjects/DownloadDate"
+property projectDir : "__PROJECT_DIR__"
 
 on run
 	-- The [d] keeps pgrep from matching its own shell command line.
