@@ -1,0 +1,13 @@
+# Virtual environment created by install_launchagent.sh
+.venv/
+venv/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# macOS
+.DS_Store
+
+# Claude Code machine-specific settings (absolute local paths)
+.claude/settings.local.json
